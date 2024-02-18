@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
+
+:root {
+  --primary-color: #17202a;
+  --secondary-color: #273746;
+  --light-gray-color: #ddd;
+  --white-color: #fff;
+  --green-color: #28b463;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* utality classes */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.label {
+  background-color: var(--secondary-color);
+  color: var(--light-gray-color);
+  padding: 0.5rem;
+  border-left: 7px #b1060f solid;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* utality classes */
+
+header {
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+body {
+  font-family: "Poppins";
+  height: 100vh;
+  background: var(--primary-color);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.slider-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  height: 70vh;
+  width: 70vw;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.slide {
+  opacity: 0;
+  transform: translateX(-25%);
+  height: 100vh;
+  width: 100vw;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: -15vh;
+  left: -15vw;
+  z-index: 1;
+  transition: all 1s ease-in;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.arrow {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--white-color);
+  padding: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.arrow i {
+  font-size: 1.5rem;
+}
+
+.arrow.focus {
+  outline: none;
+}
+
+.left-arrow {
+  left: -0px;
+}
+
+.right-arrow {
+  right: -0px;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.slider-content {
+  opacity: 0;
+  position: relative;
+  top: 67%;
+  left: 65%;
+  transform: translate(-0%, -50%);
+  z-index: 2;
+  padding: 4rem;
+  transition: all 0.7s ease-in;
+  background: rgba(0, 0, 0, 0.23);
+}
+
+.slider-content.active {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.slider-content h2 {
+  color: #fff;
+  font-size: 6rem;
+}
+
+.slider-content .movies_short_details {
+  color: var(--white-color);
+  padding: 1rem;
+  width: 50%;
+}
+
+.m_details {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin-left: 1rem;
+}
+
+.m_details .category {
+  color: #fff;
+  background: #eb984e;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.m_details .year {
+  color: #fff;
+  background: var(--green-color);
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.slider-content > button {
+  padding: 0.7rem 2rem;
+  outline: none;
+  border: none;
+  margin: 2rem 1rem;
+  background: #b1060f;
+  color: #ffff;
+  font-family: inherit;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slider-content button i {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+/* ==========================Menus Start====================== */
+.menus {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: all 0.3s ease-in;
+    padding: 1rem 0;
+  }
+  .menus.sticky {
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem 0; */
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo h2 {
+    margin-left: 0.3rem;
+    font-size: 3rem;
+    color: var(--white-color);
+  }
+  
+  .logo img {
+    width: 50px;
+  }
+  
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    margin: 0 0.4rem;
+  }
+  
+  nav ul li a {
+    padding: 0.4rem 1rem;
+    text-decoration: none;
+    border-radius: 2px;
+    color: var(--light-gray-color);
+    font-size: 1.1rem;
+  }
+  
+  #form input {
+    width: 650px;
+    outline: none;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-family: inherit;
+    background: var(--light-gray-color);
+  }
+  
+  /* ==========================Menus Close====================== */
+  /* movies section */
+.label {
+    margin: 2rem 0;
+  }
+  
+  .movies-details,
+  .Tv-details {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    row-gap: 2rem;
+  }
+  
+  .movies,
+  .tvShows {
+    width: 325px;
+    height: 500px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+    background: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .movies,
+  .tvShows img {
+    display: block;
+    width: 325px;
+    height: 400px;
+  }
+  
+  .des .movie-title {
+    font-size: 1.2rem;
+    font-family: inherit;
+    margin: 1rem 1rem;
+    color: #fff;
+  }
+  
+  .short-des {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: var(--green-color); */
+    background-color: #b1060f;
+    color: var(--white-color);
+    margin-top: 1rem;
+    font-weight: 600;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(80%);
+  }
+  
+  .short-des p {
+    padding: 0.5rem 0.5rem;
+  }
+  
+  .movies:hover .short-des,
+  .tvShows:hover .short-des {
+    transition: all 0.5s ease-in;
+    transform: translateY(0%);
+  }
+  /* pagination */
+.paginations {
+    padding: 4rem 0;
+  }
+  .paginations ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .paginations ul li {
+    margin: 0 0.7rem;
+    box-shadow: 0px 0px 10px var(--secondary-color);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in;
+    color: var(--green-color);
+  }
+  
+  .paginations ul li:nth-child(1) {
+    margin-left: 0;
+  }
+  
+  .paginations ul li:active {
+    transform: scale(1.5);
+  }
+  
+  a {
+    color: #b1060f;
+    padding-top: 1rem;
+    display: inline-block;
+  }
